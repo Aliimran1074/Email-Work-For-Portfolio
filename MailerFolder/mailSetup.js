@@ -2,9 +2,17 @@ const nodemailer= require('nodemailer')
 
 let transporter= nodemailer.createTransport({
     service:"gmail",
+    host:'smtp.gmail.com',
+    port:587,
+    secure:false,
     auth:{
     user:process.env.ADMIN_EMAIL,
     pass:process.env.ADMIN_PASSWORD      
+    },
+    debug:true,
+    logger:true,
+    tls:{
+        rejectUnauthorized:false
     }
 })
 
@@ -32,7 +40,7 @@ try {
         <h1 style="font-size: 24px; color: #333;">Message From PortFolio</h1>
         <p style="margin-top: 20px 0;">Client Name : ${clientName}</p>
         <p style="margin-top: 20px 0;">Client Email : ${clientEmail}</p>
-        <p style="margin-top: 20px 0;">Client Message : ${clientMessage}</p>    `
+        <p style="margin-top: 20px 0;">Client Message : ${clientMessage}</p> </div>    `
         
     }
 
