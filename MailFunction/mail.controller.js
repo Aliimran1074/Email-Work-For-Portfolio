@@ -2,6 +2,7 @@ const {mailConfig}= require('../MailerFolder/mailSetup')
 
 const mailSending=async(req,res)=>{
     const {clientName,clientEmail,clientMessage}=req.body
+    res.status(200).json({ success: true, message: "Email is being sent" });
     try {
         const sendingMail=await mailConfig(clientName,clientEmail,clientMessage)
         if(sendingMail.success){
