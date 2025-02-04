@@ -5,7 +5,7 @@ const mailSending=async(req,res)=>{
     // res.status(200).json({ success: true, message: "Email is being sent" });
     try {
         const sendingMail=await mailConfig(clientName,clientEmail,clientMessage)
-        if(sendingMail.success){
+        if(sendingMail.success==true){
             console.log("Mail send Successfully",sendingMail)
             return res.status(200).json({message:'Email Send Successfully'})
         }
